@@ -41,7 +41,7 @@ def get_waste_data_raw(provider, postal_code, street_number, suffix):
         for item in response:
             data = {
                 "type": _waste_type_rename(item["title"].strip().lower()),
-                "date": datetime.strptime(item["ophaaldatum"], "%Y-%m-%dT%H:%M:%S").strftime("%Y-%m-%d"),
+                "date": datetime.strptime(item["ophaaldatum"], "%Y-%m-%d").strftime("%Y-%m-%d"),
             }
             waste_data_raw.append(data)
 
