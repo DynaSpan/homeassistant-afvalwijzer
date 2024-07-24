@@ -39,7 +39,7 @@ def get_waste_data_raw(provider, postal_code, street_number, suffix):
         waste_data_raw = []
 
         for item in response:
-            if item["ophaaldatum"] != None:
+            if item["ophaaldatum"] is not None:
                 data = {
                     "type": _waste_type_rename(item["title"].strip().lower()),
                     "date": datetime.strptime(item["ophaaldatum"], "%Y-%m-%d").strftime("%Y-%m-%d"),
